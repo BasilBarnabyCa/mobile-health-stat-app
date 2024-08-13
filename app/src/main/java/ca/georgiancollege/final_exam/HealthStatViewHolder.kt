@@ -14,6 +14,6 @@ class HealthStatViewHolder (val binding: TextRowItemBinding):
             // Sets the text for the title, genre, and rating TextView
             binding.weightTextView.text = healthStat.weight.toString()
             binding.statTextView.text = healthStat.stat
-            binding.dateTextView.text = healthStat.date.toString()
+            binding.dateTextView.text = healthStat.date
         }
 }

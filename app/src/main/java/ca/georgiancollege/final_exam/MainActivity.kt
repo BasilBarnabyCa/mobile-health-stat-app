@@ -1,3 +1,11 @@
+/** Author: Basil Barnaby
+ * Student Number: 200540109
+ * Course: COMP3025 - Mobile and Pervasive Computing
+ * Final Exam - BMI APP
+ * Target Device: Google Pixel 8 Pro
+ * Version: 1.0
+ */
+
 package ca.georgiancollege.final_exam
 
 import android.content.Intent

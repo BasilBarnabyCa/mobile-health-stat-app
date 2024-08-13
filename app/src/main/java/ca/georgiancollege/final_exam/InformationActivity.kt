@@ -256,8 +256,6 @@ class InformationActivity : AppCompatActivity()
         val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd")
         val date = LocalDate.parse(LocalDate.now().toString(), formatter).toString()
 
-//        Log.d("DateTracker", date)
-
 
         if (binding.fullNameEditText.text.toString()
                 .isEmpty() || binding.ageEditText.text.toString() .isEmpty() ||
@@ -338,9 +336,10 @@ class InformationActivity : AppCompatActivity()
         var bmi: Double = 0.00
 
         if(binding.unitSwitch.isChecked) {
-            bmi = (weight * 703.0) / (height * height )
-        } else {
             bmi = (weight) / (height * height)
+        } else {
+            bmi = (weight * 703.0) / (height * height )
+
         }
 
 
@@ -352,7 +351,8 @@ class InformationActivity : AppCompatActivity()
                 .replace(Regex("\\.?0*$"), "")
         }
 
-        stat = bmi.toString()
+        stat = String.format("%.1f", bmi)
+            .replace(Regex("\\.?0*$"), "")
 
         if(bmi < 16) {
             binding.categoryTextView.text = "Severe Thinness"
@@ -377,7 +377,5 @@ class InformationActivity : AppCompatActivity()
         } else {
             binding.categoryTextView.text = "Obese Class III"
         }
-
-
     }
 }

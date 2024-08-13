@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "328535748183",
+    "project_id": "health-stat-646c9",
+    "storage_bucket": "health-stat-646c9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:328535748183:android:a42a0eec9ac0eab18f7d12",
+        "android_client_info": {
+          "package_name": "ca.georgiancollege.final_exam"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA4u3Au4YIjfWDPfNOk0_wVNxV8Y-FNhaM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

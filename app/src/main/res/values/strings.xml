@@ -24,4 +24,6 @@
     <string name="personal_information">Personal Information</string>
     <string name="cm">cm</string>
     <string name="kg">kg</string>
+    <string name="result_title_text">Result title text</string>
+    <string name="category_text">Category text</string>
 </resources>

@@ -265,4 +265,41 @@
             android:backgroundTint="@color/Warning"
             android:text="@string/cancel" />
     </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/bmiLayoutView"
+        android:layout_width="match_parent"
+        android:layout_marginTop="32dp"
+        android:layout_height="400dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="visible"
+        >
+
+        <TextView
+            android:id="@+id/resultTitleTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/result_title_text"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/bmiTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="80sp"
+            android:text="24.2"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/categoryTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/category_text"
+            android:textSize="24sp" />
+    </LinearLayout>
 </LinearLayout>

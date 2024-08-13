@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">Final Exam</string>
+    <string name="enter_weight">Enter Weight</string>
+    <string name="enter_health_stat">Enter Health Stat</string>
+    <string name="enter_date">Enter Date</string>
+    <string name="save">Save</string>
+    <string name="delete">Delete</string>
+    <string name="cancel">Cancel</string>
+    <string name="add_health_stat">Add Health Stat</string>
+    <string name="weight">Weight</string>
+    <string name="date">Date</string>
+    <string name="stat">Stat</string>
+    <string name="your_health_stats">Your Health Stats</string>
+    <string name="increment">Increment</string>
+    <string name="decrement">Decrement</string>
+    <string name="pounds">pounds</string>
+    <string name="height">Height</string>
+    <string name="submit">Submit</string>
+    <string name="metric">Metric</string>
+    <string name="imperial">Imperial</string>
+    <string name="inches">inches</string>
+    <string name="age">Age</string>
+    <string name="full_name">Full Name</string>
+    <string name="personal_information">Personal Information</string>
+    <string name="cm">cm</string>
+    <string name="kg">kg</string>
+</resources>

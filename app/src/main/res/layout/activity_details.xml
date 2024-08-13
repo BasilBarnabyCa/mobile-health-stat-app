@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- Weight Input Section with Up and Down Arrows -->
+    <TextView
+        android:id="@+id/titleTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:text="Add / Edit Health Stat"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/weightTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="@string/weight" />
+
+        <EditText
+            android:id="@+id/weightEditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="10"
+            android:background="@drawable/border_edittext"
+            android:hint="@string/enter_weight"
+            android:inputType="numberDecimal"
+            android:minHeight="@dimen/minHeightForTouchSize"
+            android:padding="8dp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:id="@+id/incrementButton"
+                android:layout_width="match_parent"
+                android:layout_height="24dp"
+                android:background="@drawable/border_arrows"
+                android:contentDescription="@string/increment"
+                android:src="@drawable/ic_arrow_up" />
+
+            <ImageButton
+                android:id="@+id/decrementButton"
+                android:layout_width="match_parent"
+                android:layout_height="24dp"
+                android:background="@drawable/border_arrows"
+                android:contentDescription="@string/decrement"
+                android:src="@drawable/ic_arrow_down" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/unitsTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_weight="1"
+            android:text="@string/pounds" />
+
+    </LinearLayout>
+
+    <!-- Stat Input Section -->
+    <EditText
+        android:id="@+id/statEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/enter_health_stat"
+        android:minHeight="@dimen/minHeightForTouchSize" />
+
+    <!-- Date Input Section -->
+    <EditText
+        android:id="@+id/dateEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/enter_date"
+        android:inputType="date"
+        android:minHeight="@dimen/minHeightForTouchSize" />
+
+    <!-- Buttons Section -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/saveButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="@color/Success"
+            android:text="@string/save" />
+
+        <Button
+            android:id="@+id/cancelButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="@color/Warning"
+            android:text="@string/cancel" />
+
+        <Button
+            android:id="@+id/deleteButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="@color/Danger"
+            android:text="@string/delete" />
+
+    </LinearLayout>
+
+</LinearLayout>

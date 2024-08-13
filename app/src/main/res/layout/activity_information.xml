@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/personal_information"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        android:paddingBottom="16dp"/>
+
+    <!-- Full Name -->
+    <EditText
+        android:id="@+id/fullNameEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/full_name"
+        android:padding="8dp"
+        android:background="@drawable/border_edittext"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- Age -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/ageTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/age"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/ageEditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:background="@drawable/border_edittext"
+            android:inputType="number"
+            android:padding="8dp"
+            android:text="18" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:id="@+id/incrementAgeButton"
+                android:layout_width="match_parent"
+                android:layout_height="24dp"
+                android:background="@drawable/border_arrows"
+                android:contentDescription="Increment Age"
+                android:src="@drawable/ic_arrow_up" />
+
+            <ImageButton
+                android:id="@+id/decrementAgeButton"
+                android:layout_width="match_parent"
+                android:layout_height="24dp"
+                android:background="@drawable/border_arrows"
+                android:contentDescription="Decrement Age"
+                android:src="@drawable/ic_arrow_down" />
+        </LinearLayout>
+
+        <!-- Invisible TextView for Alignment -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="inches"
+            android:visibility="invisible" />
+    </LinearLayout>
+
+    <View
+        android:id="@+id/firstDivider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="20dp"
+        android:background="?android:attr/listDivider" />
+
+    <!-- Height -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/heightTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/height"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/heightEditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:background="@drawable/border_edittext"
+            android:inputType="numberDecimal"
+            android:padding="8dp"
+            android:text="72.0" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:id="@+id/incrementHeightButton"
+                android:layout_width="match_parent"
+                android:layout_height="24dp"
+                android:background="@drawable/border_arrows"
+                android:contentDescription="Increment Height"
+                android:src="@drawable/ic_arrow_up" />
+
+            <ImageButton
+                android:id="@+id/decrementHeightButton"
+                android:layout_width="match_parent"
+                android:layout_height="24dp"
+                android:background="@drawable/border_arrows"
+                android:contentDescription="Decrement Height"
+                android:src="@drawable/ic_arrow_down" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/heightUnitTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="@string/inches" />
+    </LinearLayout>
+
+    <!-- Weight -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/weightTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/weight"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/weightEditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:background="@drawable/border_edittext"
+            android:inputType="numberDecimal"
+            android:padding="8dp"
+            android:text="180.0" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:id="@+id/incrementWeightButton"
+                android:layout_width="match_parent"
+                android:layout_height="24dp"
+                android:background="@drawable/border_arrows"
+                android:contentDescription="@string/increment"
+                android:src="@drawable/ic_arrow_up" />
+
+            <ImageButton
+                android:id="@+id/decrementWeightButton"
+                android:layout_width="match_parent"
+                android:layout_height="24dp"
+                android:background="@drawable/border_arrows"
+                android:contentDescription="@string/decrement"
+                android:src="@drawable/ic_arrow_down" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/weightUnitTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="@string/pounds" />
+    </LinearLayout>
+
+    <View
+        android:id="@+id/secondDivider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="20dp"
+        android:background="?android:attr/listDivider" />
+
+    <!-- Unit Switch -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginBottom="16dp">
+
+        <TextView
+            android:id="@+id/imperialTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/imperial"
+            android:textStyle="bold"
+            android:layout_marginEnd="8dp"/>
+
+        <Switch
+            android:id="@+id/unitSwitch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/metricTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/metric"
+            android:textStyle="bold"
+            android:layout_marginStart="8dp"/>
+    </LinearLayout>
+
+    <!-- Submit and Cancel Buttons -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/submitButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="@color/Success"
+            android:text="@string/submit" />
+
+        <Button
+            android:id="@+id/cancelButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="@color/Warning"
+            android:text="@string/cancel" />
+    </LinearLayout>
+</LinearLayout>

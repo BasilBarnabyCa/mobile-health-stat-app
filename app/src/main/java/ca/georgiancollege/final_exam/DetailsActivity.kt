@@ -13,6 +13,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import ca.georgiancollege.final_exam.databinding.ActivityDetailsBinding
 import ca.georgiancollege.final_exam.databinding.CalendarDialogBinding
+import java.text.SimpleDateFormat
 import java.time.LocalDate
 import java.time.ZoneId
 import java.time.format.DateTimeFormatter
@@ -214,7 +215,6 @@ class DetailsActivity : AppCompatActivity()
 
         dialog.show()
     }
-
     // Function to save or update a HealthStat
     private fun saveHealthStat()
     {
@@ -222,8 +222,8 @@ class DetailsActivity : AppCompatActivity()
         val stat = binding.statEditText.text.toString()
         val dateString = binding.dateEditText.text.toString()
 
-        val formatter = DateTimeFormatter.ofPattern("MM/dd/yy")
-        val date = LocalDate.parse(dateString, formatter)
+        val formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy")
+        val date = LocalDate.parse(dateString, formatter).toString()
 
         if (weight > 0.0 && stat.isNotEmpty() && date != null)
         {

@@ -1,10 +1,11 @@
 package ca.georgiancollege.final_exam
 
 import android.util.Log
+import com.google.firebase.Firebase
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.ktx.firestore
-import com.google.firebase.ktx.Firebase
+import com.google.firebase.firestore.firestore
 import kotlinx.coroutines.tasks.await
+
 
 class DataManager private constructor()
 {
@@ -41,7 +42,7 @@ class DataManager private constructor()
         }
         catch(e: Exception)
         {
-            Log.e(TAG, "Error inserting TVShow: ${e.message}", e)
+            Log.e(TAG, "Error inserting Health Stat: ${e.message}", e)
         }
     }
 
@@ -49,12 +50,12 @@ class DataManager private constructor()
     suspend fun update(healthStat: HealthStat){
         try
         {
-            db.collection("tvShows").document(healthStat.id).set(healthStat).await()
+            db.collection("healthStats").document(healthStat.id).set(healthStat).await()
             Log.i(TAG, "Updating HealthStat: $healthStat")
         }
         catch(e: Exception)
         {
-            Log.e(TAG, "Error updating TVShow: ${e.message}", e)
+            Log.e(TAG, "Error updating Health Stat: ${e.message}", e)
         }
     }
 
@@ -62,10 +63,10 @@ class DataManager private constructor()
     suspend fun delete(healthStat: HealthStat) {
         try
         {
-            db.collection("tvShows").document(healthStat.id).delete().await()
+            db.collection("healthStats").document(healthStat.id).delete().await()
             Log.i(TAG, "Deleting HealthStat: $healthStat")
         } catch (e: Exception) {
-            Log.e(TAG, "Error deleting TVShow: ${e.message}", e)
+            Log.e(TAG, "Error deleting Health Stat: ${e.message}", e)
         }
     }
 
@@ -79,7 +80,7 @@ class DataManager private constructor()
         }
         catch(e: Exception)
         {
-            Log.e(TAG, "Error getting TVShows: ${e.message}", e)
+            Log.e(TAG, "Error getting Health Stats: ${e.message}", e)
             emptyList()
         }
     }
@@ -94,7 +95,7 @@ class DataManager private constructor()
         }
         catch (e: Exception)
         {
-            Log.e(TAG, "Error getting TVShow by ID: ${e.message}", e)
+            Log.e(TAG, "Error getting Health Stat by ID: ${e.message}", e)
             null
         }
     }

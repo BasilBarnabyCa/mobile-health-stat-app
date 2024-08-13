@@ -1,3 +1,11 @@
+/** Author: Basil Barnaby
+ * Student Number: 200540109
+ * Course: COMP3025 - Mobile and Pervasive Computing
+ * Final Exam - BMI APP
+ * Target Device: Google Pixel 8 Pro
+ * Version: 1.0
+ */
+
 package ca.georgiancollege.final_exam
 
 import android.annotation.SuppressLint
@@ -5,16 +13,27 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.util.Log
 import android.view.MotionEvent
+import android.view.View
 import android.widget.EditText
+import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import ca.georgiancollege.final_exam.databinding.ActivityInformationBinding
+import com.google.firebase.firestore.FirebaseFirestore
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
 import java.util.Locale
 import java.util.UUID
 
 class InformationActivity : AppCompatActivity()
 {
     private lateinit var binding: ActivityInformationBinding
+
+    private val viewModel: HealthStatViewModel by viewModels()
+    private lateinit var dataManager: DataManager
+
     private val handler = Handler(Looper.getMainLooper())
 
     private lateinit var originalFullName: String
@@ -22,6 +41,7 @@ class InformationActivity : AppCompatActivity()
     private var originalHeight: Double = 72.0
     private var originalWeight: Double = 180.0
     private var originalMetric: Boolean = false
+    private var stat = ""
 
     /**
      * Called when the activity is first created.
@@ -32,6 +52,10 @@ class InformationActivity : AppCompatActivity()
         super.onCreate(savedInstanceState)
         binding = ActivityInformationBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        //
+        FirebaseFirestore.setLoggingEnabled(true)
+        dataManager = DataManager.instance()
 
         // Save the original state of the form
         saveOriginalState()
@@ -54,6 +78,9 @@ class InformationActivity : AppCompatActivity()
         binding.cancelButton.setOnClickListener {
             resetForm()
         }
+
+        calculateBmi()
+        binding.bmiTextView.text = stat
     }
 
     /**
@@ -225,16 +252,41 @@ class InformationActivity : AppCompatActivity()
         val weight = binding.weightEditText.text.toString().toDoubleOrNull() ?: 0.0
         val metric = binding.unitSwitch.isChecked
 
-        // Create a new HealthStat object
-        val healthStat = HealthStat(
-            id = UUID.randomUUID().toString(),
-            fullName = fullName,
-            age = age,
-            height = height,
-            weight = weight,
-            metric = metric
-        )
 
+        val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd")
+        val date = LocalDate.parse(LocalDate.now().toString(), formatter).toString()
+
+//        Log.d("DateTracker", date)
+
+
+        if (binding.fullNameEditText.text.toString()
+                .isEmpty() || binding.ageEditText.text.toString() .isEmpty() ||
+            binding.heightEditText.toString().isEmpty()  ||
+            binding.weightEditText.toString().isEmpty()
+        ) {
+            Toast.makeText(this, "Name, age, height, and weight are required", Toast.LENGTH_SHORT)
+                .show()
+        } else {
+            calculateBmi()
+
+            val healthStat = HealthStat(
+                id = UUID.randomUUID().toString(),
+                fullName = fullName,
+                age = age,
+                height = height,
+                weight = weight,
+                metric = metric,
+                stat = stat,
+                date = date
+            )
+
+            viewModel.saveHealthStat(healthStat)
+
+            Toast.makeText(this, "Health stat added successfully!", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
     }
 
     /**
@@ -277,5 +329,55 @@ class InformationActivity : AppCompatActivity()
         binding.ageEditText.setText(originalAge.toString())
         binding.heightEditText.setText(String.format(Locale.US, "%.1f", originalHeight))
         binding.weightEditText.setText(String.format(Locale.US, "%.1f", originalWeight))
+    }
+
+    private fun calculateBmi()
+    {
+        val height = binding.heightEditText.text.toString().toDouble()
+        val weight = binding.weightEditText.text.toString().toDouble()
+        var bmi: Double = 0.00
+
+        if(binding.unitSwitch.isChecked) {
+            bmi = (weight * 703.0) / (height * height )
+        } else {
+            bmi = (weight) / (height * height)
+        }
+
+
+        if (bmi % 1 == 0.0) {
+            binding.bmiTextView.text = bmi.toString().dropLast(2)
+        } else {
+            // Format to 8 decimal places and use regex to drop trailing zeros
+            binding.bmiTextView.text = String.format("%.1f", bmi)
+                .replace(Regex("\\.?0*$"), "")
+        }
+
+        stat = bmi.toString()
+
+        if(bmi < 16) {
+            binding.categoryTextView.text = "Severe Thinness"
+        } else if(bmi in 16.0..17.0) {
+            binding.categoryTextView.text = "Moderate Thinness"
+
+        } else if(bmi in 17.0..18.5) {
+            binding.categoryTextView.text = "Mild Thinness"
+
+        } else if(bmi in 18.5..25.0) {
+            binding.categoryTextView.text = "Normal"
+
+        } else if(bmi in 25.0..30.0) {
+            binding.categoryTextView.text = "Overweight"
+
+        } else if(bmi in 30.0..35.0) {
+            binding.categoryTextView.text = "Obese Class I"
+
+        }else if(bmi in  35.0..40.0) {
+            binding.categoryTextView.text = "Obese Class II"
+
+        } else {
+            binding.categoryTextView.text = "Obese Class III"
+        }
+
+
     }
 }

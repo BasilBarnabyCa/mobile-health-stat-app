@@ -18,9 +18,9 @@ ListAdapter<HealthStat, HealthStatViewHolder>(HealthStatComparator())
 
     // Called by the RecyclerView to display the data at a specific position
     override fun onBindViewHolder(holder: HealthStatViewHolder, position: Int) {
-        // Get the TVShow at the current position
+        // Get the Health Stat at the current position
         val current = getItem(position)
-        // Bind the TVShow data to the ViewHolder's UI elements
+        // Bind the HealthStat data to the ViewHolder's UI elements
         holder.bind(current)
         // Set a click listener for the row item to handle item clicks
         holder.itemView.setOnClickListener {

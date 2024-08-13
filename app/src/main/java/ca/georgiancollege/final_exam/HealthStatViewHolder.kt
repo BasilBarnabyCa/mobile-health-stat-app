@@ -3,7 +3,7 @@ package ca.georgiancollege.final_exam
 import androidx.recyclerview.widget.RecyclerView
 import ca.georgiancollege.final_exam.databinding.TextRowItemBinding
 
-// TVShowViewHolder is a ViewHolder class that holds a reference to the TextRowItemBinding
+// HealthStatViewHolder is a ViewHolder class that holds a reference to the TextRowItemBinding
 // and displays the HealthStat data in the UI for each row
 class HealthStatViewHolder (val binding: TextRowItemBinding):
     RecyclerView.ViewHolder(binding.root)

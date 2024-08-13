@@ -19,44 +19,44 @@ class HealthStatViewModel : ViewModel()
     private val m_healthStat = MutableLiveData<HealthStat?>()
     val healthStat: LiveData<HealthStat?> get() = m_healthStat
 
-    fun loadMockHealthStats()
-    {
-        // Mock data for testing
-        val mockData = listOf(
-            HealthStat(
-                id = UUID.randomUUID().toString(),
-                fullName = "John Doe",
-                age = 30,
-                height = 180.0,
-                weight = 75.0,
-                date = LocalDate.now(),
-                stat = "Healthy",
-                metric = true
-            ),
-            HealthStat(
-                id = UUID.randomUUID().toString(),
-                fullName = "Jane Smith",
-                age = 25,
-                height = 160.0,
-                weight = 55.0,
-                date = LocalDate.now().minusDays(1),
-                stat = "Fit",
-                metric = true
-            ),
-            HealthStat(
-                id = UUID.randomUUID().toString(),
-                fullName = "Tom Johnson",
-                age = 40,
-                height = 72.0,
-                weight = 180.0,
-                date = LocalDate.now().minusDays(2),
-                stat = "Overweight",
-                metric = false
-            )
-        )
-
-        m_healthStats.value = mockData
-    }
+//    fun loadMockHealthStats()
+//    {
+//        // Mock data for testing
+//        val mockData = listOf(
+//            HealthStat(
+//                id = UUID.randomUUID().toString(),
+//                fullName = "John Doe",
+//                age = 30,
+//                height = 180.0,
+//                weight = 75.0,
+//                date = LocalDate.now(),
+//                stat = "Healthy",
+//                metric = true
+//            ),
+//            HealthStat(
+//                id = UUID.randomUUID().toString(),
+//                fullName = "Jane Smith",
+//                age = 25,
+//                height = 160.0,
+//                weight = 55.0,
+//                date = LocalDate.now().minusDays(1),
+//                stat = "Fit",
+//                metric = true
+//            ),
+//            HealthStat(
+//                id = UUID.randomUUID().toString(),
+//                fullName = "Tom Johnson",
+//                age = 40,
+//                height = 72.0,
+//                weight = 180.0,
+//                date = LocalDate.now().minusDays(2),
+//                stat = "Overweight",
+//                metric = false
+//            )
+//        )
+//
+//        m_healthStats.value = mockData
+//    }
 
 
     // Function to load all HealthStats from the DataManager

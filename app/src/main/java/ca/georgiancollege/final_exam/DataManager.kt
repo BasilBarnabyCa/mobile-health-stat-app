@@ -74,9 +74,7 @@ class DataManager private constructor()
     suspend fun getAllHealthStats(): List<HealthStat> {
         return try {
             val healthStats = db.collection("healthStats").get().await()
-            healthStats?.toObjects(HealthStat::class.java) ?: emptyList()
-            Log.i(TAG, "Getting all Health Stats")
-            emptyList<HealthStat>()
+            healthStats.toObjects(HealthStat::class.java) ?: emptyList()
         }
         catch(e: Exception)
         {
